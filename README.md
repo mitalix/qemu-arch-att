@@ -1,11 +1,11 @@
 ### qemu-arch-att
 
 This is the first test
-
+```bash
 image_dir=../images/qemu-archlinux
 image=${image_dir}/thenameofthefile
 disk=${image_dir}/arch.img
-
+```
 
 
 Create a disk drive, that is a file image:
