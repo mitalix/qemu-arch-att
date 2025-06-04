@@ -20,7 +20,7 @@ Proceed to the install
 qemu-system-x86_64  -m 2G -cdrom ${image} -hda ${disk}
 ```
 
-Not all options are needed especially when creating a test virtual machine, but one a nice convenience
+Not all options are needed especially when creating a test virtual machine, but one of them is a nice convenience
 
 ```bash
 # setfont ter-132b
