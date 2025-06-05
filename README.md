@@ -55,6 +55,11 @@ pacman-key --populate archlinux
 ```
 which allowed the installation to continue
 
+
+```bash
+$ qemu-system-x86_64  -m 2G -hda ${disk} -net nic -net user,hostfwd=tcp::2222-:22
+```
+
 ---
 #### Additional information
 Or proceed to the install, but try to add the user network
