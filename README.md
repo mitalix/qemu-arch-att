@@ -28,15 +28,35 @@ Not all options are needed especially when creating a test virtual machine, but 
 
 Partition the disk drive that shows up as /dev/sda. See the section below for [Disk partitioning](#my-header).
 
+
+Mount the partition:
+
 ```bash
-Command (m for help): o
-Create  a new DOS (MBR) disklabel with disk identifier 0x2d4f59b5
+mount /dev/sda1 /mnt
 ```
+If you are behind a proxy, allow pacman to update the cache
 
+```
+# export http_proxy=cso.proxy.att.com:8888
 
+```
+Get to the installation
+```
+# pacstrap -K /mnt base linux linux-firmware
+```
+Ran into problems and one suggestion on the screen was to run
+```bash
+# pacman-key --init
+```
+After about 4 failing key checks, the troubleshooting section suggests
+
+```bash
+pacman-key --populate archlinux
+```
+which allowed the installation to continue
 
 ---
-
+#### Additional information
 Or proceed to the install, but try to add the user network
 ```bash
 qemu-system-x86_64 -m 2G -cdrom ${image} -hda ${disk} -m 2G -net nic -net user,hostfwd=tcp::2222-:22
@@ -170,4 +190,14 @@ arch.img2       16779264 20971519  4192256   2G 82 Linux swap / Solaris
 mi6577@CZBRN0475 UCRT64 ~
 $
 
+```
+
+The final steps to create the file system and swap on those "disk" drives
+```
+# mkfs.ext4 /dev/sda1
+```
+
+If you created a partition for swap, initialize it with mkswap(8):
+```
+# mkswap /dev/sda2
 ```
