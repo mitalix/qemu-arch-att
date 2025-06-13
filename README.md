@@ -37,7 +37,7 @@ mount /dev/sda1 /mnt
 If you are behind a proxy, allow pacman to update the cache
 
 ```
-# export http_proxy=cso.proxy.att.com:8888
+# export http_proxy=some.proxy.fqdn.com:number
 
 ```
 Get to the installation
