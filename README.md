@@ -178,7 +178,25 @@ italix:x:1000:
 ```
 
 
+Everything should be setup enough to restart and boot into your new archlinux on a qemu
 
+```
+$ qemu-system-x86_64  -m 2G -hda ${disk} -net nic -net user,hostfwd=tcp::2222-:22           
+
+```
+
+After I cranked up the qemu, two final things to logon to the system were 
+
+```
+[italix@italix ~]$ sudo systemctl enable --now sshd
+[italix@italix ~]$ sudo systemctl enable --now dhcpd
+```
+
+Then login 
+
+```$ 
+$ ssh italix@localhost -p 2222
+```
 
 
 
