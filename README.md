@@ -202,7 +202,7 @@ $ ssh italix@localhost -p 2222
 Sudo doesn't automatically carry the http_proxy values into pacman. One workaround is to edit /etc/environment and place in there the values
 
 >export http_proxy=some.proxy.fqdn.com:port-number
-export https_proxy=some.proxy.fqdn.com:port-number
+>export https_proxy=some.proxy.fqdn.com:port-number
 
 
 
