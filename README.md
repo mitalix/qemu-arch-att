@@ -201,8 +201,8 @@ $ ssh italix@localhost -p 2222
 
 Sudo doesn't automatically carry the http_proxy values into pacman. One workaround is to edit /etc/environment and place in there the values
 
->export http_proxy=some.proxy.fqdn.com:port-number
->export https_proxy=some.proxy.fqdn.com:port-number
+> export http_proxy=some.proxy.fqdn.com:port-number
+> export https_proxy=some.proxy.fqdn.com:port-number
 
 
 
@@ -223,6 +223,17 @@ Packages (4) containerd-2.1.3-1  libtool-2.5.4+r23+g5b582aed-1  runc-1.3.0-1  do
 
 
 https://kubernetes.io/docs/tutorials/hello-minikube/
+
+Sudo is not necessary, when you add the user to the docker group
+
+```
+[italix@italix ~]$sudo vim /etc/group
+[italix@italix ~]$ grep docker /etc/group
+docker:x:970:italix
+```
+
+
+#### Minikube
 
 Install the latest minikube stable release on x86-64 Linux using binary download:
 
